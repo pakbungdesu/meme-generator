@@ -42,7 +42,8 @@ def search_memes_api(request: SearchRequest):
             "score": float(score.item()),
             "file": meme["file"],
             "title": meme["title"],
-            "caption": meme["caption"]
+            "caption": meme["caption"],
+            "url": meme["url"]
         })
         
     return {"results": results}
