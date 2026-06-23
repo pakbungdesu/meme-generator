@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Karla", sans-serif;
+    margin: 0;
+    background: #f8f8ff;
+}
+
+main {
+    margin-inline: auto;
+    padding: 36px;
+    max-width: 600px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    height: 65px;
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+    color: white;
+    padding: 20px;
+}
+
+.header > img {
+    height: 60px;
+    width: auto;
+    margin-right: 12px;
+}
+
+.header > h1 {
+    font-size: 1.25rem;
+    margin-right: auto;
+}
+
+.form {
+    display: grid;
+    grid-template: auto / 1fr;
+    gap: 17px;
+    padding-bottom: 36px;
+}
+
+.form input {
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #D5D4D8;
+    text-indent: 5px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    background: none;
+    min-height: 30px;
+    font-family: "Karla", sans-serif;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center; 
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    background-color: transparent;
+    grid-column: 1 / -1; 
+    justify-content: flex-start; 
+    width: 100%;
+    padding-top: 0;
+    padding-right: 12px;
+    padding-bottom: 30px;
+    padding-left: 0; /* Forces the icon to snap perfectly to the left edge */
+}
+
+.form button {
+    grid-column: 1 / -1;
+    border-radius: 5px;
+    background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+    color: white;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* Adds space between the text and the icon */
+}
+
+.form input, .form button {
+    min-height: 40px;
+    font-family: "Karla", sans-serif;
+}
+
+.form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form input[type="text"] {
+    font-size: 16px;
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.results {
+    margin-top: 30px;
+    border-radius: 8px;
+}
+
+.results h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.results > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.results [style*="margin-bottom"] {
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0 !important;
+}
+
+.results h3 {
+    font-size: 1.1rem;
+    margin: 0 0 12px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.results img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.meme {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.meme > img {
+    max-width: 100%;
+    height: auto;
+}
+
+.bottom {
+    bottom: 0;
+}
+
+.top {
+    top: 0;
+}
