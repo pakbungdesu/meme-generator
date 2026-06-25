@@ -39,7 +39,7 @@ export default function Search({ onSelectImage }){
                         aria-label="Query"
                         name="query"
                     />
-                <button disabled={loading}>
+                <button disabled={loading} style={{ background: loading ? "#9ca3af" : "#A818DA" }} type="submit">
                     {loading? 'Searching...' : 'Search'}
                 </button>
             </form>
