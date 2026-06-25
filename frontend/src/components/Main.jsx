@@ -44,15 +44,28 @@ export default function Main({ initialImageUrl, onBackToSearch }) {
     function handleMouseMove(e) {
         if (!draggingId || !containerRef.current) return
         const rect = containerRef.current.getBoundingClientRect()
+        
+        // 1. Force calculation based on the actual dragging element's real-time dimensions
+        const textElements = containerRef.current.querySelectorAll('.meme-text');
+        let elementWidth = 150;  // Safe fallbacks
+        let elementHeight = 40;
+
+        // Map through to find the element that matches our state's position mapping order
+        const activeIndex = textBoxes.findIndex(b => b.id === draggingId);
+        if (activeIndex !== -1 && textElements[activeIndex]) {
+            elementWidth = textElements[activeIndex].clientWidth;
+            elementHeight = textElements[activeIndex].clientHeight;
+        }
+
         const deltaX = e.clientX - dragStart.current.startX
         const deltaY = e.clientY - dragStart.current.startY
 
         let newX = dragStart.current.boxX + deltaX
         let newY = dragStart.current.boxY + deltaY
 
-        // Keeps text strictly inside the boundaries of the image container
-        newX = Math.max(0, Math.min(newX, rect.width - 100)) 
-        newY = Math.max(0, Math.min(newY, rect.height - 40))
+        // 2. Strict boundary checks that will never glitch out when mouse moves fast
+        newX = Math.max(0, Math.min(newX, rect.width - elementWidth)) 
+        newY = Math.max(0, Math.min(newY, rect.height - elementHeight))
 
         setTextBoxes(prev => prev.map(box => 
             box.id === draggingId ? { ...box, x: newX, y: newY } : box
