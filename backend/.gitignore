@@ -1,4 +1,5 @@
 .venv/
-backend/test01.ipynb
+**/test01.ipynb
+**/images/**
 backend/__pycache__/
 backend/*.pt
