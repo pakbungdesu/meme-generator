@@ -17,7 +17,7 @@ export default function Search({ onSelectImage }){
                 headers: {
                 'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ query: query, top_k: 3 }), 
+                body: JSON.stringify({ query: query, top_k: 5 }), 
             });
             
             const data = await response.json();
