@@ -125,6 +125,9 @@ export default function Main({ initialImageUrl, onBackToSearch }) {
         link.click();
     }
 
+    // Prefix the original image URL with a CORS proxy to bypass browser blocking safely
+    const safeImageUrl = `http://localhost:5000/api/proxy-image?url=${encodeURIComponent(meme.imageUrl)}`;
+
     return (
         <main onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
             {onBackToSearch && (
@@ -162,7 +165,7 @@ export default function Main({ initialImageUrl, onBackToSearch }) {
                 ref={containerRef} 
                 style={{ position: "relative", display: "inline-block", WebkitUserSelect: "none", userSelect: "none" }}
             >
-                <img src={meme.imageUrl} alt="Meme" crossOrigin="anonymous" draggable="false" style={{ display: "block" }} />
+                <img src={safeImageUrl} alt="Meme" crossOrigin="anonymous" draggable="false" style={{ display: "block" }} />
                 
                 {textBoxes.map(box => (
                     <span 

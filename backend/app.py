@@ -38,6 +38,7 @@ def search_memes_api(request: SearchRequest):
     results = []
     for score, idx in zip(top_results.values, top_results.indices):
         meme = meme_data[idx]
+        print(meme)
         results.append({
             "score": float(score.item()),
             "file": meme["file"],

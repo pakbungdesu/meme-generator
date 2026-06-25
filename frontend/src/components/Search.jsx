@@ -46,7 +46,7 @@ export default function Search({ onSelectImage }){
             {toggle && <div className="results">
                 <h2>Memes you might like: </h2>
                 {results.map((meme, index) => (
-                <div key={index} style={{ 'margin-bottom': '25px' }}>
+                <div key={index} style={{ 'marginBottom': '25px' }}>
                     <h3>{meme.title}</h3>
 
                     <div 
