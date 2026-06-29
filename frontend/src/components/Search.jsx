@@ -11,22 +11,27 @@ export default function Search({ onSelectImage }){
         const query = formData.get("query")
         setLoading(true)
 
+        const BACKEND_URL ='http://localhost:8000/search'
+        // const BACKEND_URL = "https://pakbungdesu-meme-generator-backend.hf.space";
+
         try {
-            const response = await fetch('http://localhost:8000/search', {
+            // Updated endpoint to use your production Hugging Face Space
+            const response = await fetch(`${BACKEND_URL}/search`, {
                 method: 'POST',
                 headers: {
-                'Content-Type': 'application/json',
+                    'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ query: query, top_k: 5 }), 
             });
             
             const data = await response.json();
-            setResults(data.results);
+            setResults(data.results || []);
             setToggle(true);
             setLoading(false);
-            } catch (error) {
-                console.error("Error fetching memes:", error);
-            }
+        } catch (error) {
+            console.error("Error fetching memes:", error);
+            setLoading(false);
+        }
     }
 
     return (

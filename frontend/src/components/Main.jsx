@@ -128,6 +128,9 @@ export default function Main({ initialImageUrl, onBackToSearch }) {
     // Prefix the original image URL with a CORS proxy to bypass browser blocking safely
     const safeImageUrl = `http://localhost:5000/api/proxy-image?url=${encodeURIComponent(meme.imageUrl)}`;
 
+    // const BACKEND_URL = "https://pakbungdesu-meme-generator-backend.hf.space";
+    // const safeImageUrl = `${BACKEND_URL}/api/proxy-image?url=${encodeURIComponent(meme.imageUrl)}`;
+
     return (
         <main onMouseMove={handleMouseMove} onMouseUp={handleMouseUp}>
             {onBackToSearch && (
